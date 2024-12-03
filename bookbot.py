@@ -1,5 +1,14 @@
+def main():
+    filePath = input("Enter the book path: ")
+    print("--- Begin report of ",filePath," ---")
+    words = wordCount(readFile(filePath))
+    print(words, " words found in the document")
+    lettersCount = letterCount(readFile(filePath))
+    for letter in lettersCount:
+        print("The\'",letter, "\' character was found ",lettersCount[letter], " times")
 
-def readFile():
+
+def readFile(filePath):
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
     return file_contents
@@ -19,6 +28,4 @@ def letterCount(content):
     return alphabet
  
 
-
-print(wordCount(readFile()))
-print(letterCount(readFile()))
+main()
